@@ -9,7 +9,18 @@ call plug#end()
 " =============================
 set mouse=a
 
+" === CoC completion keybindings ===
 let mapleader=','
+nnoremap <silent> <leader>a :call CocActionAsync('codeAction')<CR>
+
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#confirm() :
+      \ pumvisible() ? "\<C-n>" :
+      \ "\<TAB>"
+
+inoremap <silent><expr> <CR>
+      \ coc#pum#visible() ? coc#pum#confirm() :
+      \ "\<CR>"
 
 if $WAYLAND_DISPLAY != ''
   if !has('gui_running')
@@ -23,39 +34,6 @@ if $WAYLAND_DISPLAY != ''
 else
   set clipboard=unnamedplus
 endif
-
-" =============================
-" vim-lsc configuration
-" =============================
-let g:lsc_server_commands = {
-  \ 'python': ['pyright-langserver', '--stdio']
-  \ }
-
-let g:lsc_auto_map = v:true
-let g:lsc_enable_diagnostics = v:true
-let g:lsc_enable_autocomplete = v:true
-let g:lsc_enable_apply_edit = v:true
-
-let g:python_highlight_all = 1
-
-let g:lsp_settings = {
-      \ 'pyright-langserver': {
-      \   'root_markers': ['pyproject.toml', '.git/', 'setup.cfg', '.flake8'],
-      \   'settings': {}
-      \ }
-      \ }
-
-
-" Show diagnostic messages
-let g:lsc_auto_map = {
-  \ 'GoToDefinition': 'gd',
-  \ 'FindReferences': 'gr',
-  \ 'Rename': '<leader>rn',
-  \ 'ShowHover': 'K',
-  \ 'FindCodeActions': 'ga',
-  \ 'DocumentSymbol': 'go',
-  \ 'Completion': 'completefunc',
-  \ }
 
 " =============================
 " Basic settings
