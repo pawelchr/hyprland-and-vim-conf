@@ -1,6 +1,6 @@
 call plug#begin()
 
-Plug 'natebosch/vim-lsc'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
@@ -8,6 +8,8 @@ call plug#end()
 " Clipboard configuration for Wayland
 " =============================
 set mouse=a
+
+let mapleader=','
 
 if $WAYLAND_DISPLAY != ''
   if !has('gui_running')
@@ -97,3 +99,11 @@ set undofile
 set undodir=~/.vim/_undo/
 
 set relativenumber
+
+""" Remove preview windows
+set completeopt -=preview
+
+
+" Make Coc sign column background transparent (match terminal)
+hi SignColumn guibg=NONE ctermbg=NONE
+

@@ -1,0 +1,8 @@
+{
+  "pyright.inlayHints.parameterNames.enabled": "none",
+  "pyright.inlayHints.variableTypes": false,
+  "pyright.inlayHints.functionReturnTypes": false,
+  "pyright.inlayHints.parameterTypes": false,
+  "pyright.inlayHints.genericTypes": false
+}
+
