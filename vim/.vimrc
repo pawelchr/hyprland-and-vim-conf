@@ -12,6 +12,8 @@ set mouse=a
 " === CoC completion keybindings ===
 let mapleader=','
 nnoremap <silent> <leader>a :call CocActionAsync('codeAction')<CR>
+nnoremap <leader>r <Plug>(coc-rename)
+
 
 inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#pum#confirm() :
@@ -42,16 +44,6 @@ syntax on
 filetype plugin indent on
 set background=dark
 
-" Kitty terminal undercurl and colored underline support
-let &t_Cs = "\e[4:3m"
-let &t_Ce = "\e[4:0m"
-let &t_AU = "\e[58:5:%dm"
-
-" LSP error/warning highlighting - undercurl with colored underline
-highlight lscDiagnosticError cterm=undercurl ctermul=Red
-highlight lscDiagnosticWarning cterm=undercurl ctermul=Yellow
-highlight lscReference cterm=underline
-
 let $XDG_RUNTIME_DIR = "/run/user/1000"
 let $WAYLAND_DISPLAY = "wayland-1"
 
@@ -76,7 +68,7 @@ set backupdir=~/.vim/_backup/,~/tmp,.
 set undofile
 set undodir=~/.vim/_undo/
 
-set relativenumber
+set number relativenumber
 
 """ Remove preview windows
 set completeopt -=preview
